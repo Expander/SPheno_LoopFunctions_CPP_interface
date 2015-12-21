@@ -6,6 +6,7 @@
     double precision :: re, im
     Complex(dp) :: res
     Logical :: eqre, eqim, error
+    error = .True.
 
     ! vertexC0tilde vertexC0tildeSub
     res = vertexC0tilde(100._dp, 200._dp, 300._dp)
