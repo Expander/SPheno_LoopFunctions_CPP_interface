@@ -24,7 +24,7 @@ clean:
 	-rm -f $(LIBSPheno)
 	-rm -f $(OBJ)
 	-rm -f $(MOD)
-	-rm -f $(EXE)
+	-rm -f $(EXE) $(EXE:.x=.o)
 
 $(EXE): $(LIBSPheno)
 
