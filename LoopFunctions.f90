@@ -12885,10 +12885,6 @@ End function vertexC0tildeaux
    Logical :: check
    Integer :: i1, i2
 
-   write(*,*) "m12in =", m12in
-   write(*,*) "m22in =", m22in
-   write(*,*) "m32in =", m32in
-
    Iname = Iname + 1
    NameOfUnit(Iname) = "vertexC0tilde"
 
@@ -13146,8 +13142,6 @@ End function vertexC0tildeaux
         &  /(m12 -m32 ))
 
    End If
-
-   write(*,*) "vertexC0tilde =", vertexC0tilde
    
 !    vertexC0tilde = vertexC0tilde + divergence
 
