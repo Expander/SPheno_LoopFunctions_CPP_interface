@@ -18,21 +18,23 @@ EXE := \
 
 LIBSPheno := libSPhenoLF.a
 
+LIBCPPInterface := cpp_interface.o
+
 all: $(LIBSPheno) $(EXE)
 
 clean:
-	-rm -f $(LIBSPheno)
+	-rm -f $(LIBSPheno) $(LIBCPPInterface)
 	-rm -f $(OBJ)
 	-rm -f $(MOD)
 	-rm -f $(EXE) $(EXE:.x=.o)
 
 $(EXE): $(LIBSPheno)
 
-run.x: run.o cpp_interface.o
-	$(CXX) -o $@ $^ -lgfortran
+run.x: run.o $(LIBCPPInterface)
+	$(CXX) $(CXXFLAGS) -o $@ $^ -lgfortran
 
 test.x: test.o
-	$(FC) -o $@ $^
+	$(FC) $(FFLAGS) -o $@ $^
 
 $(LIBSPheno): $(OBJ)
 	ar cru $@ $^
@@ -41,7 +43,7 @@ $(DIR)/LoopFunctions.o: $(DIR)/Control.o $(DIR)/Mathematics.o
 $(DIR)/LoopFunctionsSubroutines.o: $(DIR)/LoopFunctions.o
 
 %.o: %.f90
-	$(FC) -c -o $@ $^
+	$(FC) $(FFLAGS) -c -o $@ $^
 
 %.o: %.F90
-	$(FC) -c -o $@ $^
+	$(FC) $(FFLAGS) -c -o $@ $^
