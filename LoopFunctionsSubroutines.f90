@@ -16,7 +16,7 @@ contains
 
     double precision, intent(in) :: m12, m22, m32
     double precision, intent(out) :: re, im
-    Complex*16 :: res
+    Complex(dp) :: res
 
     res = vertexC0tilde(m12, m22, m32)
 
